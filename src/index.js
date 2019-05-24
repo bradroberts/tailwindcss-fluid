@@ -52,12 +52,12 @@ const CORNERS = ['top-left', 'top-right', 'bottom-right', 'bottom-left']
 const AXES = ['x', 'y']
 
 export default function({ suffix = '-fluid', ...properties }) {
-  return function({ e, addUtilities, config }) {
+  return function({ e, addUtilities, theme }) {
     const classes = []
 
     Object.keys(properties).forEach(property => {
       const values =
-        properties[property] === true ? config(property) : properties[property]
+        properties[property] === true ? theme(property) : properties[property]
 
       Object.keys(values).forEach(id => {
         const prop = props[property].prop
